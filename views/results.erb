@@ -1,7 +1,18 @@
-Results:
-  <% books.each do |book| %>
-    <h6><%= book.title %></h6>
-    <h7><%= book.authors %></h7>
-    <img src="<%= book.image_link %>">
-    <a href="<%= book.info_link %>"><h7>More info</h7></a>
-  <% end %>
+<div class="row">
+    <% books.each do |book| %>
+      <div class="col s12 m3 l2">
+        <div class="card">
+          <div class="card-image">
+            <img src="<%= book.image_link %>">
+            <span class="card-title"><%= book.title %></span>
+          </div>
+          <div class="card-content">
+            By: <%= book.authors %>
+          </div>
+          <div class="card-action">
+            <a href="<%= book.info_link %>">More info</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>

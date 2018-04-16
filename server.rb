@@ -9,6 +9,7 @@ end
 post '/' do
   books = GoogleBooks.search(params[:query]) || nil
   if books
+    puts books.inspect
     erb :results, :locals => {'books' => books}
   else
     # TODO: fix error handling
