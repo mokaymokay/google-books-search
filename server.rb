@@ -6,11 +6,12 @@ get '/' do
   erb :index
 end
 
-post '/results' do
-  book = GoogleBooks.search(params[:query]).first || nil
-  if book != nil
-    erb :results, :locals => {'book' => book}
+post '/' do
+  books = GoogleBooks.search(params[:query]) || nil
+  if books
+    erb :results, :locals => {'books' => books}
   else
+    # TODO: fix error handling
     halt 404, "No results found, please try again."
     erb :results
   end

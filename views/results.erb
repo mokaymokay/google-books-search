@@ -1,5 +1,7 @@
 Results:
-  <h1><%= book.title %></h1>
-  <h2><%= book.authors %></h2>
-  <img src="<%= book.image_link %>">
-  <a href="<%= book.info_link %>">More info</a>
+  <% books.each do |book| %>
+    <h6><%= book.title %></h6>
+    <h7><%= book.authors %></h7>
+    <img src="<%= book.image_link %>">
+    <a href="<%= book.info_link %>"><h7>More info</h7></a>
+  <% end %>
