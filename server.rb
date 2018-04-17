@@ -7,13 +7,11 @@ get '/' do
 end
 
 post '/' do
-  books = GoogleBooks.search(params[:query]) || nil
-  if books
-    puts books.inspect
+  query = params[:query]
+  books = GoogleBooks.search(query, {:count => 8})
+  if books.total_items != 0
     erb :results, :locals => {'books' => books}
   else
-    # TODO: fix error handling
-    halt 404, "No results found, please try again."
-    erb :results
+    erb :error, :locals => {'query' => query}
   end
 end

@@ -1,16 +1,16 @@
 <div class="row">
     <% books.each do |book| %>
       <div class="col s12 m6 l3">
-        <div class="card">
-          <div class="card-image">
-            <img src="<%= book.image_link %>">
+        <div class="card large">
+          <div class="card-image" style="max-height: 80%">
+            <img src="<%= book.image_link(:zoom => 3) %>">
             <span class="card-title"><%= book.title %></span>
           </div>
-          <div class="card-content">
+          <div class="card-content valign-wrapper" style="max-height: 10%">
             By: <%= book.authors %>
           </div>
           <div class="card-action">
-            <a href="<%= book.info_link %>">More info</a>
+            <a href="<%= book.info_link %>" target="_blank">More info</a>
           </div>
         </div>
       </div>
